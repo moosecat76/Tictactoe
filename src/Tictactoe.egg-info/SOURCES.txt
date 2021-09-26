@@ -1,0 +1,6 @@
+setup.py
+src/Tictactoe.egg-info/PKG-INFO
+src/Tictactoe.egg-info/SOURCES.txt
+src/Tictactoe.egg-info/dependency_links.txt
+src/Tictactoe.egg-info/requires.txt
+src/Tictactoe.egg-info/top_level.txt
