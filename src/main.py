@@ -5,7 +5,7 @@ def print_grid(g):
     for row in range(3):
         out += '| '
         for col in range(3):
-            out += f'{g[col][row]} '
+            out += f'{g[row][col]} '
         out += '|\n'
     out += '---------'
     return out
@@ -124,7 +124,7 @@ def is_diagonal_win(m, s):
 # You can choose whether to use a space or underscore _ to print empty cells.
 if __name__ == '__main__':
     # grid = [['X', 'O', 'X'], ['O', 'X', 'O'], ['X', 'O', 'X']] matrix format
-    grid = input("Enter cells:")
-    grid = (input_to_matrix(grid))
+    cells = input("Enter cells: ")
+    grid = (input_to_matrix(cells))
     print(print_grid(grid))
     print(game_result(grid))
