@@ -108,3 +108,11 @@ def invalid_format_coord4():
 def occupied_coord():
     i = ["1", "1"]
     return i
+
+@pytest.fixture
+def player_x():
+    return 'X'
+
+@pytest.fixture
+def player_o():
+    return 'O'

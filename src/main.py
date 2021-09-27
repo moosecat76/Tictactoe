@@ -2,19 +2,21 @@
 
 class Game:
     m = []  # matix - game play state
-    player = 'X'  # Player plays as X
+    player = ''  # Player plays as X
     coords = []  # Entered coordinates
     idx = []  # index in matrix - ie. one less that coords
     valid_coords = False
     errors = []
 
     def __init__(self, player):
-        self.player = player
+        self.m = [['_', '_', '_'], ['_', '_', '_'], ['_', '_', '_']]
+        self.player = 'X'
 
     def main(self):
-        g_str = input("Enter cells: ")
-        self.m = input_to_matrix(g_str)
         print(self.print_grid())
+        self.take_turn()
+
+    def take_turn(self):
         while not self.valid_coords:
             self.coords = str.split(input("Enter the coordinates: "), " ")
             if self.validate_coords():
@@ -22,8 +24,19 @@ class Game:
             if not self.valid_coords:
                 self.output_error()
         print(self.print_grid())
-        # print(self.game_result())
+        if self.is_finished():
+            print(self.game_result())
+        else:
+            self.switch_player()
+            self.take_turn()
+        pass
 
+    def switch_player(self):
+        self.valid_coords = False
+        if self.player == 'X':
+            self.player = 'O'
+        else:
+            self.player = 'X'
 
     def print_grid(self):
         out = '---------\n'

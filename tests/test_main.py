@@ -184,9 +184,24 @@ def test_output_error2(outofbounds_coord):
     game.validate_coords()
     assert game.output_error() == 'Coordinates should be from 1 to 3!'
 
+
 # "one" - this could be improved two values
 def test_output_error3(invalid_format_coord4):
     game = Game('X')
     game.coords = invalid_format_coord4
     game.validate_coords()
     assert game.output_error() == 'You should enter numbers!'
+
+
+def test_switch_player_x(player_x):
+    game = Game('X')
+    game.player = 'X'
+    game.switch_player()
+    assert game.player == 'O'
+
+
+def test_switch_player_o(player_o):
+    game = Game('X')
+    game.player = 'O'
+    game.switch_player()
+    assert game.player == 'X'
