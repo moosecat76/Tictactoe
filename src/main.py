@@ -65,6 +65,9 @@ class Game:
 
     # when no side has a three in a row and the grid has no empty cells.
     def is_draw(self):
+        if not self.is_finished():
+            return False
+
         if self.is_finished() is True:
             if self.is_win('O') is True:
                 r = False
@@ -160,10 +163,7 @@ class Game:
 
     # helpers
     def is_row_win(self, row, s):
-        if self.m[row][0] == s and self.m[row][1] == s and self.m[row][2] == s:
-            return True
-        else:
-            return False
+        return self.m[row][0] == s and self.m[row][1] == s and self.m[row][2] == s
 
     def is_col_win(self, col, s):
         if self.m[0][col] == s and self.m[1][col] == s and self.m[2][col] == s:
